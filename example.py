@@ -4,6 +4,9 @@ import numpy as np
 from sklearn.exceptions import NotFittedError
 from sklearn.linear_model import SGDClassifier
 
+import sys
+sys.path.append('.\\sblearn')
+
 from sblearn import action_library as actions
 from sblearn import brain
 from sblearn import entities

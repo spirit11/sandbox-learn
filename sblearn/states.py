@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import action_library as actions
+from . import action_library as actions
 
 
 class State(object):

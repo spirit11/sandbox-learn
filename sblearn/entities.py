@@ -3,10 +3,11 @@
 import random
 import numpy as np
 
-import action_library as actions
-import brain
-import states
-import substances
+from . import action_library as actions
+from . import brain
+from . import states
+from . import substances
+import collections
 
 
 class Entity(object):
@@ -256,10 +257,10 @@ class Agent(Entity):
                 X_train = np.delete(df_train, target_column, 1)
                 model_to_use.fit(X_train, y_train)
                 memory_to_use.obliviate()
-                print "Update successful"
+                print("Update successful")
             else:
                 memory_to_use.obliviate()
-                print "Memory discarded"
+                print("Memory discarded")
 
     def set_memorize_task(self, action_types, features_list, target):
         if isinstance(action_types, list):
@@ -283,7 +284,7 @@ class Agent(Entity):
                     features_list.append(feature_raw["func"](**feature_raw["kwargs"]))
                 else:
                     features_list.append(feature_raw["func"]())
-            elif callable(feature_raw):
+            elif isinstance(feature_raw, collections.Callable):
                 features_list.append(feature_raw())
             else:
                 features_list.append(feature_raw)
@@ -296,7 +297,7 @@ class Agent(Entity):
 
         target_raw = self.memorize_tasks[action_type]["target"]
 
-        if callable(target_raw):
+        if isinstance(target_raw, collections.Callable):
             return target_raw()
         elif isinstance(target_raw, dict):
             if "kwargs" in target_raw:

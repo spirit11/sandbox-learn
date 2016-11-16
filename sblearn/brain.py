@@ -74,7 +74,7 @@ class TestLearningMemory(unittest.TestCase):
         results = {"done": True, "accomplished": True}
         self.mem.save_results(results, 12)
 
-        print self.mem.make_table(int)
+        print(self.mem.make_table(int))
 
         self.assertEqual(self.mem.make_table(int), [[6, 4, False],
                                                     [1, 2, True]])

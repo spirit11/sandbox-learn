@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from entities import *
+from .entities import *
 import pickle
 import threading
 
@@ -71,7 +71,7 @@ class Field(object):
             row_str = ''
             for element in self.__field[y]:
                 row_str += str(element[-1]) + ' '
-            print row_str
+            print(row_str)
 
     def list_str_representation(self):
         representation = []
@@ -193,7 +193,7 @@ class Field(object):
         # Then we check for object doubles
 
         for line in error_list:
-            print line
+            print(line)
         return error_list
 
     def get_stats(self):

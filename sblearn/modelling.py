@@ -12,6 +12,6 @@ def run_simulation(initial_field, check_stop_function, score_function, times=5, 
         current_score = score_function(field)
         list_results.append(current_score)
         if verbose:
-            print "Iteration: {0}  Score: {1})".format(iteration+1, current_score)
+            print("Iteration: {0}  Score: {1})".format(iteration+1, current_score))
 
     return list_results

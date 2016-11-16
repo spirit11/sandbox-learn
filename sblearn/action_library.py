@@ -4,8 +4,8 @@ import cProfile
 import math
 import random
 
-import entities
-import states
+from . import entities
+from . import states
 
 
 def profile(func):
@@ -32,9 +32,9 @@ class Action(object):
         return {}
 
     def set_objective(self, control=False, **kwargs):
-        valid_objectives = self.get_objective().keys()
+        valid_objectives = list(self.get_objective().keys())
 
-        for key in kwargs.keys():
+        for key in list(kwargs.keys()):
             if key not in valid_objectives:
                 if control:
                     raise ValueError("{0} is not a valid objective".format(key))
